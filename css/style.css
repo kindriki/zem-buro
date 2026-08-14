@@ -1,0 +1,2428 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    background: #F1ECE6;
+    color: #34332f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    transition: .3s ease;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+
+/* ==========================================================
+                         HEADER
+========================================================== */
+
+.header {
+    position: relative;
+    height: 506px;
+    overflow: hidden;
+}
+
+.header-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.8);
+    transition: transform .4s ease-out;
+}
+
+.header-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.25);
+}
+
+.header-fade {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #F1ECE6
+    );
+}
+
+
+/* ==========================================================
+                         NAVIGATION
+========================================================== */
+
+.nav {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 40px;
+
+    z-index: 100;
+}
+
+.nav a {
+    position: relative;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    letter-spacing: .2px;
+
+    transition: .3s ease;
+}
+
+.nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: white;
+
+    transition: .3s ease;
+}
+
+.nav a:hover {
+    opacity: .85;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+    width: 100%;
+}
+
+
+/* ==========================================================
+                            HERO
+========================================================== */
+
+.hero-left {
+    position: absolute;
+
+    left: 60px;
+    bottom: 70px;
+
+    color: white;
+
+    max-width: 650px;
+
+    z-index: 5;
+}
+
+.hero-left h1 {
+    margin: 0 0 14px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(42px, 5vw, 68px);
+
+    line-height: 1.05;
+
+    font-weight: 600;
+
+    letter-spacing: -.8px;
+}
+
+.hero-left p {
+    margin: 0;
+
+    max-width: 620px;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    color: rgba(255,255,255,.95);
+}
+
+
+/* ==========================================================
+                    COMMON SECTIONS
+========================================================== */
+
+.about,
+.services,
+.advantages,
+.steps,
+.reviews {
+    padding: 90px 0;
+}
+
+.section {
+    padding: 90px 20px;
+    text-align: center;
+}
+
+.section-mini-title {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    background: #B4AE91;
+
+    color: white;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 20px;
+}
+
+.about h2,
+.services h2,
+.advantages h2,
+.steps h2,
+.reviews h2,
+.section h2,
+.contacts h2 {
+
+    color: #928656;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(34px, 4vw, 48px);
+
+    font-weight: 600;
+
+    margin: 0 0 25px;
+}
+
+.section-intro {
+    max-width: 750px;
+
+    margin: 0 auto 45px;
+
+    color: #666;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+                        REVEAL
+========================================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ==========================================================
+   КОНТАКТЫ — АККУРАТНАЯ КОМПОЗИЦИЯ
+========================================================== */
+
+.contacts {
+    text-align: center;
+    padding: 70px 20px 75px;
+}
+
+
+/* Заголовок */
+
+.contacts h2 {
+    margin-bottom: 14px;
+}
+
+
+/* Сетка контактов */
+
+.contact-grid {
+    width: min(100%, 1000px);
+
+    margin: 38px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    align-items: stretch;
+}
+
+
+/* ==========================================================
+   ОСНОВНЫЕ КОНТАКТНЫЕ ПЛАШКИ
+========================================================== */
+
+.contact-card {
+    min-height: 92px;
+
+    box-sizing: border-box;
+
+    padding: 16px 20px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+
+.contact-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 16px 32px rgba(0, 0, 0, .10);
+}
+
+
+/* ==========================================================
+   ТЕЛЕФОН
+========================================================== */
+
+.contact-card.phone {
+    background: #ffffff;
+
+    color: #928656;
+
+    border: 1px solid rgba(146, 134, 86, .16);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, .05);
+}
+
+
+/* ==========================================================
+   MAX
+========================================================== */
+
+.contact-card.max {
+    background:
+        linear-gradient(
+            135deg,
+            #928656,
+            #B4AE91
+        );
+
+    color: #ffffff;
+}
+
+
+/* ==========================================================
+   TELEGRAM
+========================================================== */
+
+.contact-card.tg {
+    background:
+        linear-gradient(
+            135deg,
+            #2AABEE,
+            #229ED9
+        );
+
+    color: #ffffff;
+}
+
+
+/* ==========================================================
+   VK
+========================================================== */
+
+.contact-card.vk {
+    background:
+        linear-gradient(
+            135deg,
+            #6f8fb9,
+            #829cc3
+        );
+
+    color: #ffffff;
+}
+
+
+/* ==========================================================
+   АДРЕС
+========================================================== */
+
+.contact-card.address {
+    grid-column: 1 / -1;
+
+    width: 50%;
+
+    min-height: 82px;
+
+    margin: 2px auto 0;
+
+    padding: 18px 30px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, .72);
+
+    color: #928656;
+
+    border: 1px solid rgba(146, 134, 86, .12);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, .045);
+}
+
+
+/* ==========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================================== */
+
+@media (max-width: 850px) {
+
+    .contact-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+
+        width: min(100%, 650px);
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .contacts {
+
+        padding:
+            55px 16px 60px;
+    }
+
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+        margin-top: 30px;
+    }
+
+
+    .contact-card {
+
+        min-height: 78px;
+    }
+
+
+    .contact-card.address {
+    grid-column: auto;
+
+    width: 100%;
+
+    min-height: 78px;
+
+    padding:
+        16px 20px;
+}
+
+}
+
+/* ==========================================================
+                         ABOUT
+========================================================== */
+
+.about {
+    background: #fff;
+}
+
+.about-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(300px, .65fr);
+
+    gap: 65px;
+
+    align-items: start;
+
+    margin-top: 40px;
+}
+
+.about-main-text {
+
+    color: #555;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+.about-main-text p {
+
+    margin: 0 0 20px;
+}
+
+.about-main-text .lead {
+
+    font-family: "Playfair Display", serif;
+
+    color: #928656;
+
+    font-size: 27px;
+
+    line-height: 1.4;
+}
+
+.about-main-text strong {
+
+    color: #6f6747;
+
+}
+
+.about-final {
+
+    padding: 25px;
+
+    background: #F1ECE6;
+
+    border-left: 4px solid #928656;
+
+    border-radius: 0 15px 15px 0;
+
+    color: #514d42;
+
+}
+
+/* ==========================================================
+   ОФОРМЛЕНИЕ АДРЕСА
+========================================================== */
+
+.address-icon {
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    margin-right: 14px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #F1ECE6;
+
+    color: #928656;
+
+    font-size: 27px;
+}
+
+
+.address-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    text-align: left;
+
+    line-height: 1.35;
+}
+
+
+.address-label {
+
+    margin-bottom: 3px;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    color: #888;
+}
+
+
+.address-text strong {
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #928656;
+}
+
+
+@media (max-width: 550px) {
+
+    .address-text {
+        text-align: left;
+    }
+
+}
+
+
+/* ==========================================================
+                       DIPLOMAS
+========================================================== */
+
+.credentials {
+
+    position: sticky;
+
+    top: 30px;
+}
+
+.credentials-label {
+
+    display: block;
+
+    color: #928656;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+.credentials-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+}
+
+.credential-card {
+
+    position: relative;
+
+    min-height: 210px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: #F1ECE6;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.07);
+
+    border: 1px solid rgba(146,134,86,.12);
+
+    transition: .35s ease;
+}
+
+.credential-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 22px 45px rgba(0,0,0,.1);
+}
+
+.credential-card img {
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 210px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.credential-placeholder {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #928656;
+}
+
+.credential-placeholder span {
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+.credential-placeholder strong {
+
+    font-size: 18px;
+
+    margin-bottom: 6px;
+}
+
+.credential-placeholder small {
+
+    color: #777;
+
+    line-height: 1.5;
+}
+
+.credential-card:not(.empty)
+.credential-placeholder {
+
+    display: none;
+}
+
+
+/* ==========================================================
+                        SERVICES
+========================================================== */
+
+.services-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 28px;
+
+    margin-top: 55px;
+}
+
+.service-card {
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 24px;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.05);
+
+    border:
+        1px solid rgba(146,134,86,.12);
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: left;
+}
+
+.service-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #928656;
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: .35s ease;
+}
+
+.service-card:hover::before {
+
+    transform: scaleX(1);
+}
+
+.service-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 45px rgba(0,0,0,.08);
+}
+
+.service-icon {
+
+    width: 70px;
+    height: 70px;
+
+    background: #F1ECE6;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+
+    color: #928656;
+
+    margin-bottom: 25px;
+
+    transition: .35s;
+}
+
+.service-card:hover .service-icon {
+
+    background: #928656;
+
+    color: white;
+
+    transform: rotate(-5deg) scale(1.05);
+}
+
+.service-card h3 {
+
+    color: #928656;
+
+    margin:
+        0 0 16px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 24px;
+
+    line-height: 1.3;
+}
+
+.service-card p {
+
+    line-height: 1.75;
+
+    color: #666;
+
+    margin-bottom: 20px;
+}
+
+.service-card details {
+
+    border-top:
+        1px solid #eee;
+
+    padding-top: 15px;
+}
+
+.service-card summary {
+
+    cursor: pointer;
+
+    color: #928656;
+
+    font-weight: 600;
+
+    list-style: none;
+
+    position: relative;
+
+    padding-right: 25px;
+}
+
+.service-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.service-card summary::after {
+
+    content: "+";
+
+    position: absolute;
+
+    right: 0;
+    top: -2px;
+
+    font-size: 22px;
+
+    transition: .3s;
+}
+
+.service-card details[open]
+summary::after {
+
+    content: "−";
+}
+
+.service-card ul {
+
+    margin:
+        18px 0 0;
+
+    padding-left: 20px;
+
+    color: #666;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+.service-card li {
+
+    margin-bottom: 9px;
+}
+
+
+/* ==========================================================
+                       ADVANTAGES
+========================================================== */
+
+.advantages {
+
+    background: #ece5dc;
+}
+
+.advantages-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 28px;
+
+    margin-top: 55px;
+}
+
+.adv-card {
+
+    background: white;
+
+    padding: 40px 30px;
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    transition: .35s;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.05);
+}
+
+.adv-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 25px 45px rgba(0,0,0,.08);
+}
+
+.adv-card h3 {
+
+    font-size: 52px;
+
+    margin: 0;
+
+    color: #928656;
+
+    font-family: "Playfair Display", serif;
+}
+
+.adv-card p {
+
+    margin-top: 20px;
+
+    line-height: 1.7;
+
+    color: #666;
+}
+
+
+/* ==========================================================
+                         REVIEWS
+========================================================== */
+
+.reviews {
+
+    background: #F1ECE6;
+
+    text-align: center;
+}
+
+.reviews-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 25px;
+
+    margin-top: 45px;
+}
+
+.review-placeholder {
+
+    position: relative;
+
+    background: white;
+
+    padding: 40px 30px;
+
+    border-radius: 22px;
+
+    min-height: 170px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.05);
+}
+
+.review-mark {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 65px;
+
+    color: #B4AE91;
+
+    line-height: .7;
+
+    margin-bottom: 20px;
+}
+
+.review-placeholder p {
+
+    color: #777;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* ==========================================================
+                          CASES
+========================================================== */
+
+.grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 25px;
+
+    text-align: left;
+}
+
+.card {
+
+    background: white;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    animation:
+        cardIn .6s ease forwards;
+
+    transition:
+        transform .35s,
+        box-shadow .35s;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.05);
+}
+
+.card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.08);
+}
+
+@keyframes cardIn {
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+.card img {
+
+    width: 100%;
+
+    height: 190px;
+
+    object-fit: cover;
+
+    transition: .5s;
+}
+
+.card:hover img {
+
+    transform: scale(1.05);
+}
+
+.card h3 {
+
+    padding: 0 20px;
+
+    margin-top: 20px;
+
+    color: #928656;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 22px;
+}
+
+.card p {
+
+    padding:
+        0 20px 25px;
+
+    line-height: 1.8;
+
+    color: #666;
+}
+
+
+/* ==========================================================
+                         MODAL
+========================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(25,25,22,.72);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    transition: .25s ease;
+
+    backdrop-filter: blur(4px);
+}
+
+.modal.show {
+
+    display: flex;
+
+    opacity: 1;
+}
+
+.modal-card {
+
+    position: relative;
+
+    background: white;
+
+    width: 100%;
+
+    max-width: 720px;
+
+    max-height: 88vh;
+
+    overflow-y: auto;
+
+    border-radius: 22px;
+
+    padding: 28px;
+
+    transform: scale(.96);
+
+    opacity: 0;
+
+    animation:
+        modalIn .25s ease forwards;
+}
+
+@keyframes modalIn {
+
+    to {
+
+        transform: scale(1);
+
+        opacity: 1;
+
+    }
+
+}
+
+.modal-close {
+
+    position: sticky;
+
+    top: 0;
+
+    float: right;
+
+    z-index: 5;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 15px;
+
+    border: none;
+
+    background:
+        rgba(146,134,85,.12);
+
+    color: #928656;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+
+    font-weight: 300;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.modal-close:hover {
+
+    background: #928656;
+
+    color: white;
+
+    transform:
+        rotate(90deg)
+        scale(1.05);
+}
+
+.modal-card h3 {
+
+    color: #928656;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 30px;
+
+    line-height: 1.3;
+
+    margin:
+        0 70px 25px 0;
+}
+
+.modal-card img {
+
+    width: 100%;
+
+    border-radius: 15px;
+
+    margin-bottom: 18px;
+
+    display: block;
+}
+
+.modal-card p {
+
+    color: #555;
+
+    line-height: 1.85;
+
+    white-space: pre-line;
+}
+
+.modal-nav {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    position: sticky;
+
+    bottom: 0;
+
+    background: white;
+
+    padding-top: 15px;
+}
+
+.modal-nav button {
+
+    padding:
+        12px 18px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background: #F1ECE6;
+
+    color: #928656;
+
+    font-weight: 600;
+
+    transition: .25s;
+}
+
+.modal-nav button:hover {
+
+    transform:
+        translateY(-2px);
+
+    background: #928656;
+
+    color: white;
+}
+
+
+/* ==========================================================
+                         FOOTER
+========================================================== */
+
+footer {
+
+    margin-top: 0;
+
+    padding: 55px 20px;
+
+    background: #928656;
+
+    color: white;
+}
+
+.footer-inner {
+
+    width: min(1200px, 92%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: start;
+}
+
+.footer-brand {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.footer-brand strong {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 28px;
+}
+
+.footer-brand span {
+
+    opacity: .8;
+}
+
+.footer-links,
+.footer-contact {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.footer-links a,
+.footer-contact a {
+
+    color: white;
+
+    text-decoration: none;
+
+    opacity: .85;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+
+    opacity: 1;
+
+    transform:
+        translateX(4px);
+}
+
+.footer-copy {
+
+    grid-column:
+        1 / -1;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid rgba(255,255,255,.2);
+
+    opacity: .7;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+                      BACK TO TOP
+========================================================== */
+
+.back-to-top {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 52px;
+    height: 52px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #928656;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(15px);
+
+    transition: .35s;
+}
+
+.back-to-top.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+.back-to-top:hover {
+
+    background: #7e7448;
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* ==========================================================
+                       RESPONSIVE
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .nav {
+
+        gap: 20px;
+
+    }
+
+    .nav a {
+
+        font-size: 14px;
+
+    }
+
+    .about-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .credentials {
+
+        position: static;
+
+    }
+
+    .credentials-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+    .contact-extra {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-inner {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .header {
+
+        height: 506px;
+
+    }
+
+    .nav {
+
+        top: 18px;
+
+        width: 94%;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+
+    }
+
+    .nav a {
+
+        font-size: 13px;
+
+    }
+
+    .hero-left {
+
+        left: 25px;
+
+        right: 25px;
+
+        bottom: 55px;
+
+    }
+
+    .hero-left h1 {
+
+        font-size: 42px;
+
+    }
+
+    .hero-left p {
+
+        font-size: 16px;
+
+    }
+
+    .about,
+    .services,
+    .advantages,
+    .reviews,
+    .section,
+    .contacts {
+
+        padding:
+            65px 20px;
+
+    }
+
+    .credentials-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .service-card {
+
+        padding: 28px;
+
+    }
+
+    .adv-card h3 {
+
+        font-size: 45px;
+
+    }
+
+    .modal {
+
+        padding: 10px;
+
+    }
+
+    .modal-card {
+
+        max-height: 92vh;
+
+        padding: 20px;
+
+        border-radius: 18px;
+
+    }
+
+    .modal-close {
+
+        width: 46px;
+        height: 46px;
+
+        font-size: 29px;
+    }
+
+    .footer-inner {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-copy {
+
+        grid-column: auto;
+
+    }
+
+}
+/* ==========================================================
+   ОТЗЫВЫ — НОВАЯ СИСТЕМА
+========================================================== */
+
+.reviews {
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.reviews h2 {
+    color: #928656;
+    font-size: 42px;
+    font-weight: 600;
+    margin: 0 0 18px;
+}
+
+.section-intro {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    color: #666;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+   КАРТОЧКА ОТЗЫВА
+========================================================== */
+
+.review-card {
+    position: relative;
+
+    min-width: 0;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 8px;
+
+    border: 1px solid rgba(146, 134, 86, 0.14);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.055);
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        translateY(25px)
+        scale(0.98);
+
+    animation:
+        reviewCardIn 0.65s ease forwards;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.review-card:hover {
+    transform:
+        translateY(-7px)
+        scale(1.015);
+
+    border-color: rgba(146, 134, 86, 0.45);
+
+    box-shadow:
+        0 22px 50px rgba(0, 0, 0, 0.10);
+}
+
+/* ==========================================================
+   ГОРИЗОНТАЛЬНАЯ ЛЕНТА ОТЗЫВОВ
+========================================================== */
+
+.reviews-grid {
+    display: flex;
+
+    gap: 24px;
+
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 10px 4px 28px;
+
+    scroll-snap-type: x mandatory;
+
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: #B4AE91 transparent;
+}
+
+
+/* Красивый скроллбар для Chrome / Edge / Safari */
+
+.reviews-grid::-webkit-scrollbar {
+    height: 7px;
+}
+
+.reviews-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.reviews-grid::-webkit-scrollbar-thumb {
+    background: #B4AE91;
+
+    border-radius: 20px;
+}
+
+.reviews-grid::-webkit-scrollbar-thumb:hover {
+    background: #928656;
+}
+
+
+/* ==========================================================
+   КАРТОЧКИ В ЛЕНТЕ
+========================================================== */
+
+.review-card {
+    flex: 0 0 310px;
+
+    width: 310px;
+
+    scroll-snap-align: start;
+}
+
+
+/* ==========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================================== */
+
+@media (max-width: 650px) {
+
+    .reviews-grid {
+        gap: 16px;
+
+        padding-left: 2px;
+        padding-right: 2px;
+
+        scroll-snap-type: x mandatory;
+    }
+
+    .review-card {
+        flex: 0 0 82vw;
+
+        width: 82vw;
+
+        scroll-snap-align: center;
+    }
+
+}
+
+/* ==========================================================
+   ИЗОБРАЖЕНИЕ
+========================================================== */
+
+.review-image-wrap {
+    position: relative;
+
+    width: 100%;
+
+    height: 250px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background: #F1ECE6;
+}
+
+.review-image-wrap img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.55s ease;
+}
+
+.review-card:hover
+.review-image-wrap img {
+    transform: scale(1.035);
+}
+
+
+/* ==========================================================
+   НАВЕДЕНИЕ "ОТКРЫТЬ"
+========================================================== */
+
+.review-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(146, 134, 86, 0.72);
+
+    opacity: 0;
+
+    transition:
+        opacity 0.35s ease;
+}
+
+.review-overlay span {
+    padding: 11px 20px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    color: #928656;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        transform 0.35s ease;
+}
+
+.review-card:hover
+.review-overlay {
+    opacity: 1;
+}
+
+.review-card:hover
+.review-overlay span {
+    transform:
+        translateY(0);
+}
+
+
+/* ==========================================================
+   ПУСТОЙ БЛОК
+========================================================== */
+
+.review-empty {
+    grid-column: 1 / -1;
+
+    padding: 45px 25px;
+
+    text-align: center;
+
+    color: #777;
+
+    background:
+        rgba(255, 255, 255, 0.65);
+
+    border:
+        1px dashed rgba(146, 134, 86, 0.35);
+
+    border-radius: 20px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   АНИМАЦИЯ ПОЯВЛЕНИЯ
+========================================================== */
+
+@keyframes reviewCardIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* ==========================================================
+   МОДАЛЬНОЕ ОКНО
+========================================================== */
+
+.review-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(35, 35, 30, 0.78);
+
+    backdrop-filter:
+        blur(7px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.review-modal.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* ==========================================================
+   КАРТОЧКА В МОДАЛЬНОМ ОКНЕ
+========================================================== */
+
+.review-modal-card {
+    position: relative;
+
+    max-width: 900px;
+
+    max-height: 90vh;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    background: #F1ECE6;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.28);
+
+    transform:
+        translateY(20px)
+        scale(0.94);
+
+    transition:
+        transform 0.4s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.review-modal.show
+.review-modal-card {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* ==========================================================
+   БОЛЬШОЙ СКРИНШОТ
+========================================================== */
+
+.review-modal-image {
+    display: block;
+
+    max-width: 100%;
+
+    max-height: 84vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+}
+
+
+/* ==========================================================
+   КРЕСТИК
+========================================================== */
+
+.review-modal-close {
+    position: absolute;
+
+    top: -18px;
+    right: -18px;
+
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
+
+    border:
+        3px solid #F1ECE6;
+
+    border-radius: 50%;
+
+    background: #928656;
+
+    color: #ffffff;
+
+    font-size: 31px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.review-modal-close:hover {
+    background: #B4AE91;
+
+    transform:
+        rotate(90deg)
+        scale(1.08);
+}
+
+
+/* ==========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .reviews {
+        padding: 65px 0;
+    }
+
+    .review-image-wrap {
+        height: 220px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .reviews {
+        padding: 55px 0;
+    }
+
+    .reviews h2 {
+        font-size: 32px;
+    }
+
+    .section-intro {
+        font-size: 15px;
+
+        margin-bottom: 30px;
+    }
+
+    .review-card {
+        border-radius: 18px;
+    }
+
+    .review-image-wrap {
+        height: 260px;
+    }
+
+    .review-modal {
+        padding: 15px;
+    }
+
+    .review-modal-card {
+        max-width: 96vw;
+
+        max-height: 90vh;
+
+        padding: 8px;
+
+        border-radius: 18px;
+    }
+
+    .review-modal-image {
+        max-width: 100%;
+
+        max-height: 84vh;
+    }
+
+    .review-modal-close {
+        width: 44px;
+        height: 44px;
+
+        top: -10px;
+        right: -7px;
+
+        font-size: 27px;
+    }
+
+}
+
+/* ==========================================================
+   ГОРИЗОНТАЛЬНАЯ ЛЕНТА ОТЗЫВОВ
+========================================================== */
+
+.reviews-slider {
+    position: relative;
+    width: 100%;
+}
+
+
+/* Лента */
+
+.reviews-grid {
+    display: flex;
+
+    gap: 24px;
+
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 10px 5px 30px;
+
+    box-sizing: border-box;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: #B4AE91 transparent;
+}
+
+
+/* Скроллбар Chrome / Edge / Safari */
+
+.reviews-grid::-webkit-scrollbar {
+    height: 7px;
+}
+
+.reviews-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.reviews-grid::-webkit-scrollbar-thumb {
+    background: #B4AE91;
+    border-radius: 20px;
+}
+
+.reviews-grid::-webkit-scrollbar-thumb:hover {
+    background: #928656;
+}
+
+
+/* ==========================================================
+   КАРТОЧКИ ОТЗЫВОВ
+========================================================== */
+
+.review-card {
+    flex: 0 0 310px;
+
+    width: 310px;
+
+    min-width: 0;
+
+    scroll-snap-align: start;
+}
+
+
+/* ==========================================================
+   СТРЕЛКИ
+========================================================== */
+
+.reviews-arrow {
+    position: absolute;
+
+    top: 50%;
+    z-index: 20;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    border: 1px solid rgba(146, 134, 86, 0.25);
+
+    border-radius: 50%;
+
+    background: rgba(241, 236, 230, 0.95);
+
+    color: #928656;
+
+    font-size: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+    backdrop-filter: blur(8px);
+
+    transform: translateY(-50%);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.reviews-arrow:hover {
+    background: #928656;
+
+    color: white;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.reviews-arrow-left {
+    left: -24px;
+}
+
+.reviews-arrow-right {
+    right: -24px;
+}
+
+
+/* ==========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================================== */
+
+@media (max-width: 700px) {
+
+    .reviews-grid {
+        gap: 16px;
+
+        padding-left: 4px;
+        padding-right: 4px;
+
+        scroll-snap-type: x mandatory;
+    }
+
+    .review-card {
+        flex: 0 0 82vw;
+
+        width: 82vw;
+
+        scroll-snap-align: center;
+    }
+
+    .reviews-arrow {
+        width: 42px;
+        height: 42px;
+
+        font-size: 21px;
+    }
+
+    .reviews-arrow-left {
+        left: 4px;
+    }
+
+    .reviews-arrow-right {
+        right: 4px;
+    }
+
+}
